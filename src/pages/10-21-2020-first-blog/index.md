@@ -1,7 +1,7 @@
 ---
 path: '/first-post'
 title: 'First Blog Post'
-date: '2020-10-27'
+date: '2020-09-07'
 draft: false
 ---
 
