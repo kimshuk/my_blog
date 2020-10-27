@@ -12,9 +12,11 @@ const IndexPage = ({data}) => (
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
     <h2>Index</h2>
+    <ul>
     {data.allMarkdownRemark.edges.map(post => (
-      <a href={post.node.frontmatter.path}>{post.node.frontmatter.title}</a>
+      <li><Link key={post.node.id} to={post.node.frontmatter.path}>{post.node.frontmatter.title}</Link></li>
     ))}
+    </ul>
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
       <Image />
     </div>
@@ -25,12 +27,17 @@ const IndexPage = ({data}) => (
 
 export const pageQuery = graphql`
   query IndexQuery {
-    allMarkdownRemark(limit: 10) {
+    allMarkdownRemark(
+      limit: 10
+      filter: { frontmatter: { draft: { eq: false } } }
+    ) {
       edges {
         node {
+          id
           frontmatter {
             title
             path
+            date
           }
         }
       }
