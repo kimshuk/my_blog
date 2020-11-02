@@ -5,6 +5,7 @@ module.exports = {
     author: `Andrew Kim`,
   },
   plugins: [
+    'gatsby-plugin-layout',
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -16,17 +17,23 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-material-ui',
       options: {
-        name: `Blog by Andrew`,
-        short_name: `Blog by Andrew`,
-        start_url: `/`,
-        background_color: `#FFF`,
-        theme_color: `#0442BF`,
-        display: `standalone`,
-        icon: `src/images/my_profile.png`,
+
       },
     },
+    // {
+    //   resolve: `gatsby-plugin-manifest`,
+    //   options: {
+    //     name: `Blog by Andrew`,
+    //     short_name: `Blog by Andrew`,
+    //     start_url: `/`,
+    //     background_color: `#FFF`,
+    //     theme_color: `#0442BF`,
+    //     display: `standalone`,
+    //     icon: `src/images/my_profile.png`,
+    //   },
+    // },
     `gatsby-plugin-sass`,
     {
       resolve: 'gatsby-source-filesystem',
