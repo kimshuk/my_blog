@@ -1,24 +1,44 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import Container from '@material-ui/core/Container';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
+import { graphql, Link, useStaticQuery } from "gatsby"
+import PropTypes from "prop-types"
+import Header from "../components/header"
 
 import Image from "../components/image"
 import SEO from "../components/seo"
-import Layout from "../components/Layout/layout"
 
-const IndexPage = ({data}) => (
-  <Layout>
-    <SEO title="Home" />
-    <h2>Index</h2>
-    <ul>
-    {data.allMarkdownRemark.edges.map(post => (
-      <li><Link key={post.node.id} to={post.node.frontmatter.path}>{post.node.frontmatter.title}</Link></li>
-    ))}
-    </ul>
-  </Layout>
-)
+const IndexPage = ({data}) => {
+  return (
+    <Container maxWidth="sm">
+      <Box my={4}>
+        <SEO title="Home" />
+        <Header siteTitle={headerData.site.siteMetadata?.title || `Title`} /> 
+        <Typography variant="h4" component="h2">Index</Typography>
+        <ul>
+          {data.allMarkdownRemark.edges.map(post => (
+            <li><Link key={post.node.id} to={post.node.frontmatter.path}>{post.node.frontmatter.title}</Link></li>
+          ))}
+        </ul>
+        <footer style={{
+          marginTop: `2rem`
+        }}>
+          © {new Date().getFullYear()}, Built by
+          {` `}
+          <a href="https://www.jeesookim.com/">Andrew Kim</a>
+        </footer>
+      </Box>
+    </Container>
+  )
+}
+
+// Layout.propTypes = {
+//   children: PropTypes.node.isRequired,
+// }
 
 export const pageQuery = graphql`
-  query IndexQuery {
+  query IndexQueryAndSiteTitleQuery {
     allMarkdownRemark(
       limit: 10
       filter: { frontmatter: { draft: { eq: false } } }
@@ -35,6 +55,11 @@ export const pageQuery = graphql`
         }
       }
     }
+    site {
+        siteMetadata {
+          title
+        }
+      }
   }
 `
 
