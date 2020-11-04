@@ -2,8 +2,7 @@ import React from "react"
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
-import { graphql, Link, useStaticQuery } from "gatsby"
-import PropTypes from "prop-types"
+import { graphql, Link } from "gatsby"
 import Header from "../components/header"
 
 import Image from "../components/image"
@@ -14,7 +13,7 @@ const IndexPage = ({data}) => {
     <Container maxWidth="sm">
       <Box my={4}>
         <SEO title="Home" />
-        <Header siteTitle={headerData.site.siteMetadata?.title || `Title`} /> 
+        <Header siteTitle={data.site.siteMetadata?.title || `Title`} /> 
         <Typography variant="h4" component="h2">Index</Typography>
         <ul>
           {data.allMarkdownRemark.edges.map(post => (

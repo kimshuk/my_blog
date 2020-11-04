@@ -5,7 +5,7 @@ module.exports = {
     author: `Andrew Kim`,
   },
   plugins: [
-    'gatsby-plugin-layout',
+    // 'gatsby-plugin-layout',
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
