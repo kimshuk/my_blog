@@ -5,7 +5,12 @@ module.exports = {
     author: `Andrew Kim`,
   },
   plugins: [
-    // 'gatsby-plugin-layout',
+    {
+      resolve: 'gatsby-plugin-layout',
+      options: {
+        component: require.resolve('./plugins/gatsby-plugin-layout/TopLayout.js')
+      }
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -22,18 +27,6 @@ module.exports = {
 
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-manifest`,
-    //   options: {
-    //     name: `Blog by Andrew`,
-    //     short_name: `Blog by Andrew`,
-    //     start_url: `/`,
-    //     background_color: `#FFF`,
-    //     theme_color: `#0442BF`,
-    //     display: `standalone`,
-    //     icon: `src/images/my_profile.png`,
-    //   },
-    // },
     `gatsby-plugin-sass`,
     {
       resolve: 'gatsby-source-filesystem',
