@@ -6,9 +6,9 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: 'gatsby-plugin-layout',
+      resolve: `gatsby-plugin-layout`,
       options: {
-        component: require.resolve('./plugins/gatsby-plugin-layout/TopLayout.js')
+        component: require.resolve(`./src/components/Layout.js`)
       }
     },
     `gatsby-plugin-react-helmet`,
@@ -22,20 +22,20 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: 'gatsby-plugin-material-ui',
+      resolve: `gatsby-plugin-material-ui`,
       options: {
 
       },
     },
     `gatsby-plugin-sass`,
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/pages`,
-        name: 'pages'
+        name: `pages`
       }
     },
-    'gatsby-transformer-remark'
+    `gatsby-transformer-remark`
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
