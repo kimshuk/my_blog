@@ -1,29 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from '../theme';
+import { graphql, useStaticQuery } from 'gatsby';
 
-export default function TopLayout(props) {
+const Layout = ({ children }) => {
+  const data = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }  
+  `)
+
   return (
     <>
-      <Helmet>
-        <meta name='viewport' content="minimum-scale=1, initial-scale=1, width=device-width" />
-        <link 
-          href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap"
-          rel="stylesheet"
-        />
-      </Helmet>
+      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <ThemeProvider theme={theme}>
-        {/* CssBaseline kickstart a simple baseline to build upon. */}
         <CssBaseline />
-        {props.children}
+        <main>{children}</main>
+        <footer></footer>
       </ThemeProvider>
     </>
   )
 }
 
-TopLayout.propTypes = {
-  children: PropTypes.node,
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
 }
+
+export default Layout
