@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 import PropTypes from 'prop-types';
-import { Grid } from '@material-ui/core'
+import { Grid, Link } from '@material-ui/core'
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from '../theme';
@@ -12,32 +12,35 @@ const Layout = ({ children }) => {
     query SiteTitleQuery {
       site {
         siteMetadata {
-          author
           description
           title
+          author {
+            name
+          }
         }
       }
     }
   `)
 
-console.log(data, "data");
-
-
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <Grid container>
-          <Grid item sm>
-            <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-          </Grid>
-          <Grid item sm>
-            <CssBaseline />
-            <main>{children}</main>
-            <footer></footer>
-          </Grid>
+    <ThemeProvider theme={theme}>
+      <Grid container>
+        <Grid item sm>
+          <Header siteTitle={data.site.siteMetadata?.title || `Title`} author={data.site.siteMetadata.author} />
         </Grid>
-      </ThemeProvider>
-    </>
+        <Grid item sm>
+          <CssBaseline />
+          <main>{children}</main>
+          <footer style={{
+              marginTop: `2rem`
+            }}>
+              © {new Date().getFullYear()}, Built by
+              {` `}
+              <Link to="https://www.jeesookim.com/">Andrew Kim</Link>
+          </footer>
+        </Grid>
+      </Grid>
+    </ThemeProvider>
   )
 }
 

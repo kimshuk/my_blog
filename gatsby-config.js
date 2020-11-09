@@ -2,7 +2,17 @@ module.exports = {
   siteMetadata: {
     title: `Andrew's Tech Blog`,
     description: `Blog about anything I learned or worth mentioning`,
-    author: `Andrew Kim`,
+    author: {
+      name: 'Andrew Kim',
+      photo: './src/images/my_profile.png',
+      bio: 'Eiusmod elit nostrud sunt eiusmod sint labore mollit ea labore ut aute incididunt labore.',
+      contacts: {
+        email: 'jeesoo2002@gmail.com',
+        github: 'kimshuk',
+        linkedin: 'andrew-kim-72b5598b',
+        website: 'www.jeesookim.com'
+      }
+    }
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
