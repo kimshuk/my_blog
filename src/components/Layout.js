@@ -26,7 +26,9 @@ const Layout = ({ children }) => {
     <ThemeProvider theme={theme}>
       <Grid container>
         <Grid item sm>
-          <Header siteTitle={data.site.siteMetadata?.title || `Title`} author={data.site.siteMetadata.author} />
+          <Header siteMetadata={data.site.siteMetadata} />
+          <Link to="/">Articles</Link>
+          <Link to="/about-me">About me</Link>
         </Grid>
         <Grid item sm>
           <CssBaseline />

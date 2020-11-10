@@ -5,7 +5,7 @@ import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import { Typography } from "@material-ui/core";
 
-const Header = ({ siteTitle, author }) => (
+const Header = ({ siteMetadata }) => (
   <header>
     <Container maxWidth="sm">
       <Box>
@@ -13,13 +13,11 @@ const Header = ({ siteTitle, author }) => (
           <Link
             to="/"
           >
-            {siteTitle}
+            {siteMetadata.title}
           </Link>
         </Typography>
-        <Typography component="subtitle1">{author}</Typography>
+        <Typography component="subtitle1">{siteMetadata.author.name}</Typography>
         <Typography component="body1" variant="p">Pariatur id incididunt tempor in deserunt esse tempor adipisicing mollit. Consectetur ipsum id magna culpa enim. Pariatur mollit nostrud dolore ex do minim reprehenderit pariatur.</Typography>
-        <Link>Articles</Link>
-        <Link>About me</Link>
       </Box>
     </Container>
   </header>

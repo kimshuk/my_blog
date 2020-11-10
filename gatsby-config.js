@@ -31,6 +31,15 @@ module.exports = {
 
       },
     },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        background_color: '#FFF',
+        theme_color: '#F7A046',
+        display: 'standalone',
+        icon: 'src/images/my_profile.png'
+      }
+    },
     `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-filesystem`,

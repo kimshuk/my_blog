@@ -21,13 +21,7 @@ const IndexPage = ({data}) => {
               <li key={post.node.id}><Link to={post.node.frontmatter.path}>{post.node.frontmatter.title}</Link></li>
             ))}
           </ul>
-          <footer style={{
-            marginTop: `2rem`
-          }}>
-            © {new Date().getFullYear()}, Built by
-            {` `}
-            <a href="https://www.jeesookim.com/">Andrew Kim</a>
-          </footer>
+
         </Box>
       </Container>
     </Layout>
