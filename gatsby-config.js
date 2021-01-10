@@ -40,7 +40,14 @@ module.exports = {
         icon: 'src/images/my_profile.png'
       }
     },
-    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        cssLoaderOptions: {
+          camelCase: false,
+        }
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

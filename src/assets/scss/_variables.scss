@@ -1,0 +1,20 @@
+/**
+* Variables
+*/
+
+// Colors
+$color-base: #222;
+$color-primary: #5D93FF;
+$color-secondary: #F7A046;
+
+$color-white: #FFF;
+$color-gray: lighten($color-base, 40%);
+$color-gray-border: lighten($color-base, 77%);
+$color-gray-bg: lighten($color-base, 79%);
+
+// Typographic
+$typographic-font-family: -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+
+$typographic-root-font-size: 100;
+$typographic-base-font-size: 16px;
+$typographic-small-font-size: 14px;
