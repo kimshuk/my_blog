@@ -1,16 +1,20 @@
+'use strict'
+
+const siteConfig = require('./config.js');
+
 module.exports = {
   siteMetadata: {
-    title: `Andrew's Tech Blog`,
-    description: `Blog about anything I learned or worth mentioning`,
+    title: siteConfig.title,
+    description: siteConfig.description,
     author: {
-      name: 'Andrew Kim',
-      photo: './src/images/my_profile.png',
-      bio: 'Eiusmod elit nostrud sunt eiusmod sint labore mollit ea labore ut aute incididunt labore.',
+      name: siteConfig.name,
+      photo: siteConfig.photo,
+      bio: siteConfig.bio,
       contacts: {
-        email: 'jeesoo2002@gmail.com',
-        github: 'kimshuk',
-        linkedin: 'andrew-kim-72b5598b',
-        website: 'www.jeesookim.com'
+        email: siteConfig.email,
+        github: siteConfig.github,
+        linkedin: siteConfig.linkedin,
+        website: siteConfig.website
       }
     }
   },

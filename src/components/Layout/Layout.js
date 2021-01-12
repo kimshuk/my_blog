@@ -8,6 +8,9 @@ const Layout = ({
   description,
   socialImage = ''
 }) => {
+  const { author, url } = useSiteMetadata();
+  const metaImage = socialImage || author.photo;
+
   return (
     <>
       <Helmet>
