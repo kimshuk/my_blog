@@ -5,7 +5,7 @@ const _ = require('lodash');
 
 const createPages = async ({graphql, actions}) => {
   const { createPage } = actions;
-  const postTemplate = path.resolve('src/templates/post.js');
+  const postTemplate = path.resolve('src/templates/post-template.js');
 
   // 404
   createPage({

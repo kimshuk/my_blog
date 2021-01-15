@@ -1,28 +1,38 @@
 import React from "react"
 import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 import { graphql, Link } from "gatsby"
 import Header from "../components/header"
-import Layout from '../components/Layout'
+import {useSiteMetadata} from '../hooks'
+import Layout from '../components/Layout/Layout'
+import Page from '../components/Page/Page'
 
 import Image from "../components/image"
-import SEO from "../components/seo"
+import Sidebar from "../components/Sidebar/Sidebar";
+// import SEO from "../components/seo"
 
 const IndexPage = ({data}) => {
+  const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata();
+
   return (
     <Layout>
       <Container maxWidth="sm">
-        <Box>
-          <SEO title="Home" />
-          <Typography variant="h4" component="h2">Index</Typography>
-          <ul>
-            {data.allMarkdownRemark.edges.map(post => (
-              <li key={post.node.id}><Link to={post.node.frontmatter.path}>{post.node.frontmatter.title}</Link></li>
-            ))}
-          </ul>
-
-        </Box>
+        <Grid container spacing={3}>
+          <Grid item lg={4} md={6} xs={12}>
+            <Sidebar />
+          </Grid>
+          <Grid item lg={8} md={6} xs={12}>
+            <Page>
+              <Typography variant="h4" component="h2">Index</Typography>
+              <ul>
+                {data.allMarkdownRemark.edges.map(post => (
+                  <li key={post.node.id}><Link to={post.node.frontmatter.path}>{post.node.frontmatter.title}</Link></li>
+                ))}
+              </ul>
+            </Page>
+          </Grid>
+        </Grid>
       </Container>
     </Layout>
   )

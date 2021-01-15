@@ -3,9 +3,9 @@ import styles from './Author.module.scss';
 import {Avatar, Typography, makeStyles} from '@material-ui/core';
 
 const user = {
-  avatar: '/src/images/my_profile.png',
+  avatar: '/static/images/avatars/my_profile.png',
   jobTitles: 'Web Developer',
-  name: 'Andrew Kim'
+  name: 'Andrew Kim',
 }
 
 const useStyles = makeStyles(() => ({
@@ -24,7 +24,6 @@ const Author = () => {
       <Avatar 
         className={classes.avatar}
         src={user.avatar}
-        to="/"
       />
       <Typography
         className={classes.name}
@@ -35,9 +34,14 @@ const Author = () => {
       </Typography>
       <Typography
         color="textSecondary"
-        variant="body2"
+        variant="subtitle1"
       >
         {user.jobTitles}
+      </Typography>
+      <Typography 
+        variant="body2"
+      >
+        {}
       </Typography>
     </>
   )

@@ -6,17 +6,7 @@ module.exports = {
   siteMetadata: {
     title: siteConfig.title,
     description: siteConfig.description,
-    author: {
-      name: siteConfig.name,
-      photo: siteConfig.photo,
-      bio: siteConfig.bio,
-      contacts: {
-        email: siteConfig.email,
-        github: siteConfig.github,
-        linkedin: siteConfig.linkedin,
-        website: siteConfig.website
-      }
-    }
+    author: siteConfig.author
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -26,6 +16,13 @@ module.exports = {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/pages`,
+        name: `pages`
+      }
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -50,13 +47,6 @@ module.exports = {
         cssLoaderOptions: {
           camelCase: false,
         }
-      }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/pages`,
-        name: `pages`
       }
     },
     `gatsby-transformer-remark`
