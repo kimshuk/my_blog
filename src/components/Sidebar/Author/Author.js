@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Author.module.scss';
+import { Link as GatsbyLink } from 'gatsby';
 import {Avatar, Typography, makeStyles} from '@material-ui/core';
 
 const user = {
@@ -23,7 +23,9 @@ const Author = () => {
     <>
       <Avatar 
         className={classes.avatar}
+        component={GatsbyLink}
         src={user.avatar}
+        to="/"
       />
       <Typography
         className={classes.name}

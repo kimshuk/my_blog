@@ -3,14 +3,11 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { graphql, Link } from "gatsby"
-import Header from "../components/header"
 import {useSiteMetadata} from '../hooks'
 import Layout from '../components/Layout/Layout'
 import Page from '../components/Page/Page'
 
-import Image from "../components/image"
 import Sidebar from "../components/Sidebar/Sidebar";
-// import SEO from "../components/seo"
 
 const IndexPage = ({data}) => {
   const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata();
@@ -43,7 +40,7 @@ export const pageQuery = graphql`
     allMarkdownRemark(
       limit: 10
       filter: { frontmatter: { draft: { eq: false } } }
-      sort: {fields: [ frontmatter___date ], order: DESC}
+      sort: {fields: [ frontmatter___date ], order: ASC}
     ) {
       edges {
         node {

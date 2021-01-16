@@ -9,6 +9,7 @@ const NotFoundTemplate = () => {
   return (
     <Layout title={`Not Found - ${title}`} description={subtitle}>
       <Sidebar />
+      <div>Not Found 404</div>
     </Layout>
   );
 };
