@@ -1,6 +1,8 @@
 import React from "react";
 import Helmet from 'react-helmet'
 import { useSiteMetadata } from '../../hooks'
+import { ThemeProvider } from '@material-ui/core/styles';
+import theme from '../../theme';
 
 const Layout = ({ 
   children,
@@ -13,7 +15,7 @@ const Layout = ({
   const metaImage = socialImage || author.photo;
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
@@ -24,7 +26,7 @@ const Layout = ({
         <meta name="twitter:description" content={description} />
       </Helmet>
       {children}
-    </>
+    </ThemeProvider>
   )
 }
 
