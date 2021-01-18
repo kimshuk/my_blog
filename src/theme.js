@@ -16,6 +16,18 @@ const theme = createMuiTheme({
     background: {
       default: '#fafafa'
     }
+  },
+  typography: {
+    fontFamily:['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', '"Helvetica Neue"', 'sans-serif'].join(','),
+    h1: {
+      fontWeight: 'bold'
+    },
+    h2: {
+      fontWeight: 'bold'
+    },
+    h3: {
+      fontWeight: 'bold'
+    }
   }
 });
 
