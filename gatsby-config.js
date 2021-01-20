@@ -6,7 +6,8 @@ module.exports = {
   siteMetadata: {
     title: siteConfig.title,
     description: siteConfig.description,
-    author: siteConfig.author
+    author: siteConfig.author,
+    menu: siteConfig.menu
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

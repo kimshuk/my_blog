@@ -17,6 +17,10 @@ const useSiteMetadata = () => {
                 website
               }
             }
+            menu {
+              label
+              path
+            }
           }
         }
       }
