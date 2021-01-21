@@ -2,12 +2,6 @@ import React from 'react';
 import { Link as GatsbyLink } from 'gatsby';
 import {Avatar, Typography, makeStyles} from '@material-ui/core';
 
-const user = {
-  avatar: '/static/images/avatars/my_profile.png',
-  jobTitles: 'Web Developer',
-  name: 'Andrew Kim',
-}
-
 const useStyles = makeStyles(() => ({
   avatar: {
     cursor: 'pointer',
@@ -16,15 +10,16 @@ const useStyles = makeStyles(() => ({
   }
 }))
 
-const Author = () => {
+const Author = ({ author }) => {
   const classes = useStyles();
+  console.log(author);
 
   return (
     <>
       <Avatar 
         className={classes.avatar}
         component={GatsbyLink}
-        src={user.avatar}
+        src={author.photo}
         to="/"
       />
       <Typography
@@ -32,18 +27,18 @@ const Author = () => {
         color="textPrimary"
         variant="h5"
       >
-        {user.name}
+        {author.name}
       </Typography>
       <Typography
         color="textSecondary"
         variant="subtitle1"
       >
-        {user.jobTitles}
+        {author.job}
       </Typography>
       <Typography 
         variant="body2"
       >
-        {}
+        {author.bio}
       </Typography>
     </>
   )
