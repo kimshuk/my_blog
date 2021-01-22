@@ -21,9 +21,9 @@ module.exports = {
   ],
   author: {
     name: 'Andrew Kim',
-    photo: '/static/images/avatars/my_profile.png',
-    bio: 'My Bio',
     job: 'Web Developer',
+    photo: '/static/images/avatars/my_profile.png',
+    bio: 'My Bio is empty',
     contacts: {
       email: 'jeesoo2002@gmail.com',
       github: 'kimshuk',

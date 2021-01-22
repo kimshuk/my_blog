@@ -5,14 +5,13 @@ import {Avatar, Typography, makeStyles} from '@material-ui/core';
 const useStyles = makeStyles(() => ({
   avatar: {
     cursor: 'pointer',
-    width: 64,
-    height: 64
+    width: 75,
+    height: 75
   }
 }))
 
 const Author = ({ author }) => {
   const classes = useStyles();
-  console.log(author);
 
   return (
     <>
@@ -26,6 +25,7 @@ const Author = ({ author }) => {
         className={classes.name}
         color="textPrimary"
         variant="h5"
+        component="h1"
       >
         {author.name}
       </Typography>

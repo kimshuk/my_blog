@@ -6,16 +6,13 @@ const Page = ({ title, children }) => {
   const pageRef = useRef();
 
   return (
-    <Box>
+    <>
       <div ref={pageRef}>
-        <div>
-          { title && <Typography component="h1" variant="h2">{title}</Typography> }          
-        </div>
-        <div>
-          {children}
-        </div>
+        
+        { title && <Typography component="h2" variant="h2">{title}</Typography> }          
+        {children}
       </div>
-    </Box>
+    </>
   )
 }
 
