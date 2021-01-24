@@ -2,8 +2,9 @@
 
 const path = require('path');
 const _ = require('lodash');
+const createPostsPages = require('./pagination/create-posts-pages.js');
 
-const createPages = async ({graphql, actions}) => {
+const createPages = async ({graphql, actions, reporter}) => {
   const { createPage } = actions;
   const postTemplate = path.resolve('src/templates/post-template.js');
 
@@ -28,8 +29,10 @@ const createPages = async ({graphql, actions}) => {
     }
   }`);
 
+  // Handle errors
   if (result.errors) {
-    return Promise.reject(result.errors);
+    reporter.panicOnBuild(`Error while running GraphQL query.`)
+    return
   }
 
   const { edges } = result.data.allMarkdownRemark;
@@ -40,6 +43,8 @@ const createPages = async ({graphql, actions}) => {
       component: postTemplate
     })
   })
+
+  await createPostsPages(graphql, actions);
 }
 
 module.exports = createPages;

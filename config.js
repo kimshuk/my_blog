@@ -5,6 +5,7 @@ module.exports = {
   pathPrefix: '/',
   title: `Jeesoo's Blog`,
   description: 'Blog about anything I learned or worth mentioning',
+  postsPerPage: 4,
   menu: [
     {
       label: 'Articles',

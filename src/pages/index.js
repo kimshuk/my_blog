@@ -1,11 +1,11 @@
 import React from "react"
 import { Container, Grid, Typography, Divider, makeStyles } from '@material-ui/core';
 import { graphql, Link } from "gatsby"
-import {useSiteMetadata} from '../hooks'
+import { useSiteMetadata } from '../hooks'
 import Layout from '../components/Layout/Layout'
 import Feed from '../components/Feed/Feed'
-import Page from '../components/Page/Page'
 import Sidebar from "../components/Sidebar/Sidebar";
+import Paginate from '../components/Paginate/Paginate';
 
 const useStyles = makeStyles((theme) => ({
   gridContainerRoot: {
@@ -20,10 +20,11 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-const IndexPage = ({data}) => {
+const IndexPage = ({data, pageContext}) => {
   const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata();
   const classes = useStyles();
   const { edges } = data.allMarkdownRemark;
+  console.log(edges, "edges");
 
   return (
     <Layout>
@@ -35,6 +36,7 @@ const IndexPage = ({data}) => {
           <Divider className={classes.dividerRoot} orientation="vertical" />
           <Grid item lg={8} md={6} xs={12}>
             <Feed  />
+            <Paginate pageContext={pageContext} />
           </Grid>
         </Grid>
       </Container>
@@ -52,7 +54,7 @@ const IndexPage = ({data}) => {
 </Page> */}
 
 export const pageQuery = graphql`
-  query IndexQueryAndSiteTitleQuery($postsLimit: Int!, $postsOffset: Int!) {
+  query IndexQueryAndSiteTitleQuery($postsLimit: Int! = 10, $postsOffset: Int! = 0) {
     allMarkdownRemark(
       limit: $postsLimit
       skip: $postsOffset
