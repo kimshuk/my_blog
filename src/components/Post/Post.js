@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container, Typography, Box, Fab } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import Link from '../Link/Link';
 
 const useStyles = makeStyles({
   button: {
@@ -29,7 +28,7 @@ const useStyles = makeStyles({
 const Post = ({post}) => {
   const classes = useStyles();
   const { html } = post;
-  const { tags, title, date } = post.frontmatter;
+  const { title, date } = post.frontmatter;
 
   return (
     <Container maxWidth="sm">

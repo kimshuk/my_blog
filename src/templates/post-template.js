@@ -4,7 +4,6 @@ import Layout from '../components/Layout/Layout'
 import Post from '../components/Post/Post';
 
 export default function PostTemplate({data}) {
-    const {markdownRemark: post} = data;
     return (
         <Layout>
             <Post post={data.markdownRemark} />

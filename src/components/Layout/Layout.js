@@ -10,9 +10,8 @@ const Layout = ({
   description,
   socialImage = ''
 }) => {
-  console.log(useSiteMetadata());
-  const { author, url } = useSiteMetadata();
-  const metaImage = socialImage || author.photo;
+  const { author } = useSiteMetadata();
+  // const metaImage = socialImage || author.photo;
 
   return (
     <ThemeProvider theme={theme}>

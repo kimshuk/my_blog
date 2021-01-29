@@ -1,11 +1,27 @@
 import React from 'react';
-import Pagination from '@material-ui/lab/Pagination';
+import { Link } from 'gatsby';
 
 const Paginate = ({ pageContext }) => {
-  console.log(pageContext, "pageContext");
-  const { totalCount } = pageContext;
+  const { numPages, currentPage, prevPagePath, nextPagePath } = pageContext;
+  const isFirst = currentPage === 1;
+  const isLast = currentPage === numPages;
+  const prevPage = prevPagePath;
+  const nextPage = nextPagePath;
+  // console.log(isFirst, isLast);
+
   return (
-    <Pagination count={totalCount} />
+    <>
+      {!isFirst && (
+        <Link to={prevPage} rel='prev'>
+          ← Previous Page
+        </Link>
+      )}
+      {!isLast && (
+        <Link to={nextPage} rel="next">
+          Next Page →
+        </Link>
+      )}
+    </>
   )
 }
 

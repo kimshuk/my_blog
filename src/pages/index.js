@@ -23,8 +23,8 @@ const useStyles = makeStyles((theme) => ({
 const IndexPage = ({data, pageContext}) => {
   const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata();
   const classes = useStyles();
-  const { edges } = data.allMarkdownRemark;
-  console.log(edges, "edges");
+  const { edges } = data && data.allMarkdownRemark;
+  console.log(pageContext, "pageContext in Index");
 
   return (
     <Layout>
@@ -36,7 +36,12 @@ const IndexPage = ({data, pageContext}) => {
           <Divider className={classes.dividerRoot} orientation="vertical" />
           <Grid item lg={8} md={6} xs={12}>
             <Feed  />
-            <Paginate pageContext={pageContext} />
+            <ul>
+              {data.allMarkdownRemark.edges.map(post => (
+                <li key={post.node.id}><Link to={post.node.frontmatter.path}>{post.node.frontmatter.title}</Link></li>
+              ))}
+            </ul>
+            {pageContext && <Paginate pageContext={pageContext} />}
           </Grid>
         </Grid>
       </Container>
@@ -54,7 +59,7 @@ const IndexPage = ({data, pageContext}) => {
 </Page> */}
 
 export const pageQuery = graphql`
-  query IndexQueryAndSiteTitleQuery($postsLimit: Int! = 10, $postsOffset: Int! = 0) {
+  query IndexQueryAndSiteTitleQuery($postsLimit: Int! = 0, $postsOffset: Int! = 0) {
     allMarkdownRemark(
       limit: $postsLimit
       skip: $postsOffset
@@ -72,11 +77,6 @@ export const pageQuery = graphql`
         }
       }
     }
-    site {
-        siteMetadata {
-          title
-        }
-      }
   }
 `
 
