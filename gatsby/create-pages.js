@@ -2,8 +2,8 @@
 
 const path = require('path');
 const _ = require('lodash');
-const siteConfig = require('../../config');
-const createPostsPages = require('./pagination/create-posts-pages.js');
+const siteConfig = require('../config');
+const { node } = require('prop-types');
 
 const createPages = async ({graphql, actions, reporter}) => {
   const { createPage } = actions;
@@ -25,7 +25,7 @@ const createPages = async ({graphql, actions, reporter}) => {
           frontmatter {
             path
             title
-       ag   }
+          }
         }
       }
     }
@@ -38,7 +38,7 @@ const createPages = async ({graphql, actions, reporter}) => {
   }
 
   const { edges } = result.data.allMarkdownRemark;
-
+  
   edges.forEach(edge => {
     createPage({
       path: edge.node.frontmatter.path,
@@ -54,7 +54,7 @@ const createPages = async ({graphql, actions, reporter}) => {
       path: i === 0 ? '/' : `/page/${i}`,
       component: IndexPage,
       context: {
-        currentPage: i + 1,
+        currentPage: i,
         numPages,
         postsLimit: postsPerPage,
         postsOffset : i * postsPerPage,

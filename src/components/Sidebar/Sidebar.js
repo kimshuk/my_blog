@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
 const Sidebar = () => {
   const { author, menu } = useSiteMetadata();
   const classes = useStyles();
+  console.log(author, "author?");
 
   return (
     <div className={classes.sideBarContainer}>

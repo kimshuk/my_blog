@@ -1,27 +1,35 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import styles from './Paginate.module.scss';
 
 const Paginate = ({ pageContext }) => {
   const { numPages, currentPage, prevPagePath, nextPagePath } = pageContext;
-  const isFirst = currentPage === 1;
-  const isLast = currentPage === numPages;
+  const isFirst = currentPage === 0;
+  const isLast = currentPage === numPages - 1;
   const prevPage = prevPagePath;
   const nextPage = nextPagePath;
-  // console.log(isFirst, isLast);
+  const disabledPrevLink = isFirst ? "" : "pagination__link--disabled";
+  const disabledNextLink = isLast ? "" : "pagination__link--disabled";
+
+  console.log(styles, "styles");
 
   return (
-    <>
-      {!isFirst && (
-        <Link to={prevPage} rel='prev'>
-          ← Previous Page
-        </Link>
-      )}
-      {!isLast && (
-        <Link to={nextPage} rel="next">
-          Next Page →
-        </Link>
-      )}
-    </>
+    <div className={styles['pagination']}>
+      <Link
+        disabled={isFirst}
+        className={isFirst ? styles['pagination__link--disabled'] : ''}
+        to={prevPage}
+      >
+        ← Prev
+      </Link>
+      <Link
+        disabled={isLast}
+        className={isLast ? styles['pagination__link--disabled'] : ''}
+        to={nextPage}
+      >
+        Next →
+      </Link>
+    </div>
   )
 }
 

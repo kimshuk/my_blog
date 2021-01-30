@@ -18,7 +18,7 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    {
+    { 
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/pages`,
@@ -33,6 +33,9 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
+        name: siteConfig.title,
+        short_name: siteConfig.title,
+        start_url: '/',
         background_color: '#FFF',
         theme_color: '#F7A046',
         display: 'standalone',

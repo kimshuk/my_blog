@@ -49,17 +49,10 @@ const IndexPage = ({data, pageContext}) => {
   )
 }
 
-{/* <Page>
-<Typography variant="h4" component="h2">Index</Typography>
-<ul>
-  {data.allMarkdownRemark.edges.map(post => (
-    <li key={post.node.id}><Link to={post.node.frontmatter.path}>{post.node.frontmatter.title}</Link></li>
-  ))}
-</ul>
-</Page> */}
+export default IndexPage
 
 export const pageQuery = graphql`
-  query IndexQueryAndSiteTitleQuery($postsLimit: Int! = 0, $postsOffset: Int! = 0) {
+  query IndexQueryAndSiteTitleQuery($postsLimit: Int!, $postsOffset: Int!) {
     allMarkdownRemark(
       limit: $postsLimit
       skip: $postsOffset
@@ -80,4 +73,3 @@ export const pageQuery = graphql`
   }
 `
 
-export default IndexPage
