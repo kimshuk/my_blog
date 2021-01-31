@@ -9,6 +9,8 @@ const onCreateNode = ({ node, actions, getNode }) => {
   if (typeof node.frontmatter.slug !== 'undefined') {
     const dirname = getNode(node.parent).relativeDirectory;
 
+    console.log(getNode(node.parent), "getNode()");
+
     createNodeField({
       node,
       name: 'slug',
@@ -16,6 +18,9 @@ const onCreateNode = ({ node, actions, getNode }) => {
     });
   } else {
     const value = createFilePath({ node, getNode });
+    console.log(value, "createFilePath");
+    console.log(getNode(node.parent), "getNode()");
+
     createNodeField({
       node,
       name: 'slug',

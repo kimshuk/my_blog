@@ -38,10 +38,18 @@ const createPages = async ({graphql, actions, reporter}) => {
   const { edges } = result.data.allMarkdownRemark;
   console.log(edges, "edges in create-pages");
   
-  edges.forEach(edge => {
+  edges.forEach((edge, index) => {
+    const prev = index === edges.length - 1 ? null : edges[index + 1].node;
+    const next = index === 0 ? null : edges[index - 1].node
+
     createPage({
-      path: edge.node.frontmatter.path,
-      component: postTemplate
+      path: edge.node.fields.slug,
+      component: postTemplate,
+      context: {
+        slug: edge.node.fields.slug,
+        prev,
+        next
+      }
     })
   })
 

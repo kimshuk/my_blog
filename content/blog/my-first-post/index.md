@@ -1,5 +1,4 @@
 ---
-path: '/first-post'
 title: 'First Blog Post'
 date: '2020-09-07T22:40:32.169Z'
 category: 'Front End Development'
