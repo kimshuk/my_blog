@@ -19,6 +19,8 @@ export const postQuery = graphql`
                 path
                 title
                 date
+                description
+                socialImage
             }   
         }
     }

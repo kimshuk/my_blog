@@ -8,7 +8,6 @@ const Page = ({ title, children }) => {
   return (
     <>
       <div ref={pageRef}>
-        
         { title && <Typography component="h2" variant="h2">{title}</Typography> }          
         {children}
       </div>

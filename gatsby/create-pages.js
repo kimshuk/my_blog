@@ -3,21 +3,16 @@
 const path = require('path');
 const _ = require('lodash');
 const siteConfig = require('../config');
-const { node } = require('prop-types');
 
 const createPages = async ({graphql, actions, reporter}) => {
   const { createPage } = actions;
   const postTemplate = path.resolve('src/templates/post-template.js');
-  const IndexPage = path.resolve('src/pages/index.js');
-
-  // 404
-  createPage({
-    path: '/404',
-    component: path.resolve('./src/templates/not-found-template.js')
-  })
+  const indexTemplate = path.resolve('src/templates/index-template.js');
 
   const result = await graphql(`{
-    allMarkdownRemark {
+    allMarkdownRemark(
+      filter: { frontmatter: { draft: { ne: true }} }
+    ) {
       edges {
         node {
           html
@@ -25,6 +20,9 @@ const createPages = async ({graphql, actions, reporter}) => {
           frontmatter {
             path
             title
+          }
+          fields {
+            slug
           }
         }
       }
@@ -38,6 +36,7 @@ const createPages = async ({graphql, actions, reporter}) => {
   }
 
   const { edges } = result.data.allMarkdownRemark;
+  console.log(edges, "edges in create-pages");
   
   edges.forEach(edge => {
     createPage({
@@ -52,7 +51,7 @@ const createPages = async ({graphql, actions, reporter}) => {
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
       path: i === 0 ? '/' : `/page/${i}`,
-      component: IndexPage,
+      component: indexTemplate,
       context: {
         currentPage: i,
         numPages,

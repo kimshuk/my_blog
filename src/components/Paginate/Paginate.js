@@ -8,8 +8,6 @@ const Paginate = ({ pageContext }) => {
   const isLast = currentPage === numPages - 1;
   const prevPage = prevPagePath;
   const nextPage = nextPagePath;
-  const disabledPrevLink = isFirst ? "" : "pagination__link--disabled";
-  const disabledNextLink = isLast ? "" : "pagination__link--disabled";
 
   console.log(styles, "styles");
 
@@ -17,15 +15,15 @@ const Paginate = ({ pageContext }) => {
     <div className={styles['pagination']}>
       <Link
         disabled={isFirst}
-        className={isFirst ? styles['pagination__link--disabled'] : ''}
+        className={`${isFirst ? styles['pagination__link--disabled'] : ''} ${styles['pagination__link']}`}
         to={prevPage}
       >
         ← Prev
       </Link>
       <Link
         disabled={isLast}
-        className={isLast ? styles['pagination__link--disabled'] : ''}
-        to={nextPage}
+        className={`${isLast ? styles['pagination__link--disabled'] : ''} ${styles['pagination__link']}`}
+        to={isLast ? '/' : nextPage}
       >
         Next →
       </Link>
