@@ -2,6 +2,7 @@
 title: Test Post N.3
 date: "2017-08-19T22:40:32.169Z"
 category: "Typography"
+slug: "testing-spec-slug"
 description: "An Essay on Typography by Eric Gill takes the reader back to the year 1930. The year when a conflict between two worlds came to its term. The machines of the industrial world finally took over the handicrafts."
 socialImage: "none"
 draft: false
