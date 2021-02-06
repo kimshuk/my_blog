@@ -3,6 +3,9 @@
 const siteConfig = require('./config.js');
 
 module.exports = {
+  flags: {
+    DEV_SSR: false,
+  },
   siteMetadata: {
     title: siteConfig.title,
     description: siteConfig.description,

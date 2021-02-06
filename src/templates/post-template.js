@@ -3,10 +3,11 @@ import React from 'react';
 import Layout from '../components/Layout/Layout'
 import Post from '../components/Post/Post';
 
-export default function PostTemplate({data}) {
+const PageTemplate = ({data, pageContext}) => {
+    console.log(pageContext, "pageContext in Post Temp")
     return (
         <Layout>
-            <Post post={data.markdownRemark} />
+            <Post post={data.markdownRemark} pageContext={pageContext} />
         </Layout>
     )
 }
@@ -24,3 +25,4 @@ export const postQuery = graphql`
         }
     }
 `
+export default PageTemplate;

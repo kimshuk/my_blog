@@ -9,8 +9,6 @@ const Paginate = ({ pageContext }) => {
   const prevPage = prevPagePath;
   const nextPage = nextPagePath;
 
-  console.log(styles, "styles");
-
   return (
     <div className={styles['pagination']}>
       <Link

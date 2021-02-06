@@ -47,25 +47,26 @@ const IndexPage = ({data, pageContext}) => {
 
 export default IndexPage
 
-// export const pageQuery = graphql`
-//   query IndexQueryAndSiteTitleQuery($postsLimit: Int!, $postsOffset: Int!) {
-//     allMarkdownRemark(
-//       limit: $postsLimit
-//       skip: $postsOffset
-//       filter: { frontmatter: { draft: { eq: false } } }
-//       sort: {fields: [ frontmatter___date ], order: ASC}
-//     ) {
-//       edges {
-//         node {
-//           id
-//           frontmatter {
-//             title
-//             path
-//             date
-//           }
-//         }
-//       }
-//     }
-//   }
-// // `
+export const pageQuery = graphql`
+  query IndexQueryAndSiteTitleQuery($postsLimit: Int!, $postsOffset: Int!) {
+    allMarkdownRemark(
+      limit: $postsLimit
+      skip: $postsOffset
+      filter: { frontmatter: { draft: { eq: false } } }
+      sort: {fields: [ frontmatter___date ], order: ASC}
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date
+          }
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  }`
 
