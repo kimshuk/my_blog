@@ -22,6 +22,9 @@ const useSiteMetadata = () => {
               label
               path
             }
+            url
+            title
+            subtitle
           }
         }
       }

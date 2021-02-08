@@ -1,6 +1,6 @@
 import React from "react"
-import { Container, Grid, Typography, Divider, makeStyles } from '@material-ui/core';
-import { graphql, Link } from "gatsby"
+import { Container, Grid, Divider, makeStyles } from '@material-ui/core';
+import { graphql } from "gatsby"
 import { useSiteMetadata } from '../hooks'
 import Layout from '../components/Layout/Layout'
 import Feed from '../components/Feed/Feed'
@@ -21,21 +21,25 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const IndexPage = ({data, pageContext}) => {
-  const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata();
+  const { title: siteTitle, subtitle: siteSubtitle, author } = useSiteMetadata();
   const classes = useStyles();
   const { edges } = data && data.allMarkdownRemark;
-  console.log(edges, "edges in Index");
-  console.log(pageContext, "pageContext in Index");
+
+  const {
+    currentPage,
+  } = pageContext;
+
+  const pageTitle = currentPage > 0 ? `Posts - Page ${currentPage} - ${siteTitle}` : siteTitle;
 
   return (
-    <Layout>
+    <Layout title={`${pageTitle} - ${author.name}`} description={siteSubtitle}>
       <Container maxWidth="md">
-        <Grid className={classes.gridContainerRoot} container spacing={3}>
-          <Grid item lg={4} md={6} xs={12}>
-            <Sidebar />
+        <Grid className={classes.gridContainerRoot} container>
+          <Grid item lg={4} md={5} sm={12}>
+            <Sidebar isIndex />
           </Grid>
           <Divider className={classes.dividerRoot} orientation="vertical" />
-          <Grid item lg={8} md={6} xs={12}>
+          <Grid item lg={8} md={7} sm={12}>
             <Feed edges={edges} />
             {pageContext && <Paginate pageContext={pageContext} />}
           </Grid>
@@ -61,6 +65,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             date
+            description
           }
           fields {
             slug

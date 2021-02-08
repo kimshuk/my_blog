@@ -2,11 +2,16 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import Layout from '../components/Layout/Layout'
 import Post from '../components/Post/Post';
+import { useSiteMetadata } from '../hooks';
 
 const PageTemplate = ({data, pageContext}) => {
-    console.log(pageContext, "pageContext in Post Temp")
+    const { subtitle: siteSubtitle, author } = useSiteMetadata();
+    const { frontmatter } = data.markdownRemark;
+    const { title: pageTitle, description: pageDescription = '' } = frontmatter;
+    const metaDescription = pageDescription || siteSubtitle;
+
     return (
-        <Layout>
+        <Layout title={`${pageTitle} - ${author.name}`} description={metaDescription}>
             <Post post={data.markdownRemark} pageContext={pageContext} />
         </Layout>
     )

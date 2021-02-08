@@ -28,6 +28,10 @@ const theme = createMuiTheme({
     },
     h3: {
       fontWeight: 'bold'
+    },
+    body1: {
+      fontSize: '16px',
+      color: '#222222'
     }
   }
 });

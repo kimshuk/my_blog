@@ -7,7 +7,9 @@ module.exports = {
     DEV_SSR: false,
   },
   siteMetadata: {
+    url: siteConfig.url,
     title: siteConfig.title,
+    subtitle: siteConfig.subtitle,
     description: siteConfig.description,
     author: siteConfig.author,
     menu: siteConfig.menu
@@ -21,12 +23,26 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/static/media`,
+        name: 'media'
+      }
+    },
     { 
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,
         name: `blog`
       }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/assets`,
+        name: `assets`,
+      },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,

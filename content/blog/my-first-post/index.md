@@ -1,35 +1,35 @@
 ---
 title: 'First Blog Post'
-date: '2020-09-07T22:40:32.169Z'
-category: 'Front End Development'
+date: '2021-02-08'
+category: 'Daily'
 tags:
-  - "Front End"
-  - "Technology"
-description: "Est laborum cupidatat laboris nisi ex non irure laboris. Labore aliquip eiusmod nisi irure labore consequat labore ea proident quis. In in nisi sunt dolore fugiat laborum. Nostrud aute magna consectetur commodo ex dolore. Deserunt anim veniam ad commodo exercitation sint laboris Lorem."
+  - "Daily"
+  - "Random"
+description: "탈도 많고 오래도 걸린 블로그가 드디어 완성됐다. 꽤 전부터 개발자로써의 테크블로그가 갖고 싶었는데 기존의 블로그 서비스를 쓸까하다가 나의 사이트도 revamp하고 싶었고해서 만들게되었고 포스팅과정을 간단히 하고 싶었기에 개츠비 프레임워크 + Material UI 라이브러리를 이용해 개발을 시작했다."
 socialImage: "/media/placeholder.jpg"
 draft: false
 ---
 
-##Hello! This is our first blog post
+##첫 블로그 개장기념 포스팅
 
-Consectetur nostrud esse mollit exercitation commodo ullamco ipsum non non reprehenderit laboris velit labore minim. Ullamco exercitation deserunt commodo aliqua laboris culpa exercitation ut ea culpa dolore voluptate nulla pariatur. Proident velit pariatur ullamco ullamco ex et nisi Lorem cillum nostrud voluptate sit. Officia consequat labore velit ipsum. Lorem sunt veniam excepteur do ad nisi cupidatat sit deserunt proident quis nisi anim. Id irure magna veniam labore.
+탈도 많고 오래도 걸린 블로그가 드디어 완성됐다. 꽤 전부터 개발자로써의 테크블로그가 갖고 싶었는데 기존의 블로그 서비스를 쓸까하다가 나의 사이트도 revamp하고 싶었고해서 만들게되었고 포스팅과정을 간단히 하고 싶었기에 개츠비 프레임워크 + Material UI 라이브러리를 이용해 개발을 시작했다.
 
-Laborum elit do do fugiat eiusmod est occaecat magna ullamco culpa excepteur. Aliquip velit commodo enim cupidatat aliquip fugiat nisi cupidatat. Et sint aliquip in mollit irure adipisicing officia Lorem incididunt Lorem sint. Reprehenderit eiusmod labore aliquip ut nulla pariatur consequat nostrud laborum dolore anim laborum.
+MUI를 적극적으로 써볼 생각이였는데 내가 참고로 하고 있던 사이트 디자인과 MUI는 잘 맞지 않아서 MUI 컴포넌트를 잘 활용하지 못한거같아 아쉬움이 남는다. 그리고 느낀게 MUI를 쓸꺼면 MUI에 맞게 디자인을 선택해야한다는걸 느꼈다. MUI는 이미 완성되있는 디자인 컴포넌트이기에...
 
-Et anim officia ullamco laborum commodo dolor elit laborum sit. Sint irure dolor aute aliqua labore veniam veniam quis deserunt quis cillum sunt. Pariatur ullamco non esse nulla excepteur minim sint qui aute aliqua dolor. Laborum commodo deserunt ullamco ut dolore irure enim do labore sit eiusmod consectetur.
+개츠비를 쓰면서 나름 시행착오가 많았다. 기존의 Page 폴더 방식으로 하면 페이지만드는게 간단했지만 그렇게 하고싶지 않았기에 [createPage API](https://www.gatsbyjs.com/docs/reference/routing/creating-routes/)를 쓰는 길을 택했고 하지만 기존의 boilerplate은 page 폴더 방식으로 되어있어서 createPage API와 page 폴더방식의 충돌이 생각도 못한 race condition 에러를 일으켜 골머리를 앓기도 했었다.
 
-Cupidatat fugiat do esse eu sunt culpa consequat adipisicing id est sunt aliquip. Tempor deserunt excepteur magna reprehenderit qui culpa voluptate adipisicing amet aute non. Reprehenderit culpa culpa dolor ea quis. Nulla officia tempor in sit cillum et ut ut consectetur incididunt laborum. Anim eu est ipsum aute tempor nulla magna et exercitation ea ex. Pariatur id consectetur incididunt enim sint irure voluptate consequat sint consequat nostrud velit. Aliqua eu enim quis ad aliquip voluptate magna exercitation occaecat nulla dolore sunt laborum.
+그리고 개츠비는 gatsby.node와 gatsby.config에서 많은 설정을 담당해주는데 위의 두 파일의 내용을 바꿀때마다 서버를 다시 시작해야한다는게 불편했다. 아마 개츠비가 Static site generator이기 때문인거같은데 참조자료를 넣겠다
 
-Et Lorem ut pariatur mollit. Aliqua cillum reprehenderit ad magna. Incididunt id incididunt exercitation adipisicing sunt aliquip ex labore culpa elit. Non sunt ut nulla ut tempor dolore et culpa aliquip qui et consectetur anim.
+> [All pieces of information (including the current page URL) must be pulled from other sources or generated during build time or runtime before inserting it into the markup.](https://css-tricks.com/how-to-the-get-current-page-url-in-gatsby/)
 
-Sint do aliqua commodo consequat et. Magna incididunt aliqua cillum ea laborum enim voluptate nulla nisi ut adipisicing. Tempor quis enim laboris incididunt adipisicing culpa.
+아무쪼록 이 블로그는 내가 배우는 내용 또는 기억하고 싶은 것들을 저장해두는 공간으로 계속해서 업데이트해나갈 예정이다. 메인은 개발과 관련된 거겠지만 다른 관심사도 포함될수 있다.
 
-Mollit anim exercitation exercitation sint in est laboris do culpa. Labore officia Lorem consequat ex exercitation ea aliqua cillum enim. Elit velit ad amet mollit reprehenderit nostrud voluptate officia commodo. Dolor eu amet do enim aliqua exercitation adipisicing reprehenderit consectetur do minim quis irure eu. Labore velit ad mollit et. Duis nulla sit tempor cupidatat laborum Lorem.
+앞으로 블로그에 더 업데이트할 개발내용
 
-Magna pariatur consectetur veniam officia fugiat consectetur ex minim mollit sit amet ex. Sunt Lorem deserunt nulla sunt. Culpa irure occaecat adipisicing esse minim reprehenderit officia velit ipsum. Id exercitation tempor in voluptate sit do nisi Lorem. Eiusmod consequat est in dolore aliqua. Id proident deserunt anim ex do minim amet. Ad aute est pariatur aute irure nisi enim duis esse occaecat.
- 
- Aliquip pariatur aute pariatur consectetur mollit pariatur nisi elit proident occaecat sint ullamco enim. Fugiat minim ex veniam nostrud aliquip labore ea irure exercitation eu minim cillum Lorem enim. Eiusmod aliqua id eu Lorem esse enim anim id. Non ipsum cupidatat ex ipsum cupidatat dolor duis sint aute nulla. Et ad officia consectetur est.
+- [ ] 블로그 댓글기능
+- [ ] 카테고리, 태그 페이지 추가
+- SEO 설정 다듬기
+  - [ ] Sitemap
+- About Page를 어떻게 할지
+  - [ ] 포트폴리오 페이지로 만들지
 
-Amet laboris exercitation ut sunt veniam id. In ut velit officia exercitation nostrud laboris. Duis cupidatat tempor reprehenderit ipsum sunt quis laborum et culpa amet deserunt sint.
-
-Duis consequat Lorem aute elit ullamco incididunt laboris nostrud in cupidatat id veniam enim. Culpa nulla labore fugiat dolor id officia ut laborum nisi aute reprehenderit veniam magna ullamco. Laborum cupidatat non pariatur ex commodo aliqua veniam sunt. Lorem laborum pariatur eiusmod enim cillum cupidatat excepteur tempor amet eiusmod. Id Lorem ad pariatur reprehenderit dolor cillum quis veniam. Exercitation deserunt fugiat veniam eiusmod. Aliqua elit ex sunt eiusmod exercitation.

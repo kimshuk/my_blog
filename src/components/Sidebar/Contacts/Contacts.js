@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   contactsLinkList: {
     display: 'flex',
     flexFlow: 'row wrap',
-    width: '4.15rem'
+    marginBottom: '1.025rem'
   }
 }))
 

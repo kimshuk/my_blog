@@ -13,15 +13,15 @@ const onCreateNode = ({ node, actions, getNode }) => {
       createNodeField({
         node,
         name: 'slug',
-        value: `/${dirname}/${node.frontmatter.slug}`
+        value: `/blogs/${node.frontmatter.slug}`
       });
     } else {
-      const value = createFilePath({ node, getNode, basePath: 'posts/' });
+      const value = createFilePath({ node, getNode, basePath: 'blog' });
   
       createNodeField({
         node,
         name: 'slug',
-        value
+        value: `/blogs${value}`
       })
     }
   }

@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import { makeStyles } from '@material-ui/core';
-import { BorderBottom } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
+  menuListContainer: {
+    marginBottom: '1.625rem'
+  },
   menuList: {
     listStyle: 'none',
     padding: '0',
@@ -24,7 +26,7 @@ const Menu = ({ menu }) => {
   const classes = useStyles();
 
   return (
-    <nav>
+    <nav className={classes.menuListContainer}>
       <ul className={classes.menuList}>
         {menu.map((item) => (
           <li key={item.path}>

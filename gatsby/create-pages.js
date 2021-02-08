@@ -40,8 +40,6 @@ const createPages = async ({graphql, actions, reporter}) => {
     const prev = index === edges.length - 1 ? null : edges[index + 1].node;
     const next = index === 0 ? null : edges[index - 1].node
 
-    console.log(edge.node.fields.slug, "edge.node.fields.slug")
-
     createPage({
       path: edge.node.fields.slug,
       component: postTemplate,

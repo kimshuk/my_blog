@@ -1,6 +1,5 @@
 import React from "react";
-import Helmet from 'react-helmet'
-import { useSiteMetadata } from '../../hooks'
+import Helmet from 'react-helmet';
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from '../../theme';
 
@@ -10,7 +9,6 @@ const Layout = ({
   description,
   socialImage = ''
 }) => {
-  const { author } = useSiteMetadata();
   // const metaImage = socialImage || author.photo;
 
   return (

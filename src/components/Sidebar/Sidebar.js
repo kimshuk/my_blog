@@ -14,14 +14,13 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-const Sidebar = () => {
+const Sidebar = ({ isIndex }) => {
   const { author, menu } = useSiteMetadata();
   const classes = useStyles();
-  console.log(author, "author?");
 
   return (
     <div className={classes.sideBarContainer}>
-      <Author author={author} />
+      <Author author={author} isIndex={isIndex} />
       <Menu menu={menu} />
       <Contacts contacts={author.contacts} />
       <Typography className={classes.copyrightText} variant="caption">© {new Date().getFullYear()}, Built by Andrew Kim</Typography>

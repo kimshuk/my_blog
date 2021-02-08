@@ -3,8 +3,9 @@
 module.exports = {
   url: 'https://jeesookim.com',
   pathPrefix: '/',
-  title: `Jeesoo's Blog`,
-  description: 'Blog about anything I learned or worth mentioning',
+  title: `Blog by Jeesoo`,
+  subtitle: `Andrew Kim's website about coding and other interests`,
+  description: 'To Infinity and Beyond',
   postsPerPage: 4,
   menu: [
     {
@@ -14,17 +15,13 @@ module.exports = {
     {
       label: 'About me',
       path: '/about'
-    },
-    {
-      label: 'Contact me',
-      path: '/contact-me'
     }
   ],
   author: {
     name: 'Andrew Kim',
     job: 'Web Developer',
-    photo: '/src/images/my_profile.png',
-    bio: 'My Bio is empty',
+    photo: '/my_profile.png',
+    bio: 'Web Developer with React and Node.js focused, aim to create more efficient and intuitive process with the least amount of effort',
     contacts: {
       email: 'jeesoo2002@gmail.com',
       github: 'kimshuk',
